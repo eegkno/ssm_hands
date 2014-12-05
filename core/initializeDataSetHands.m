@@ -41,3 +41,4 @@ end
 shapes = tmp;
 %plot(shapes(1,:,2)', shapes(2,:,2)' )
 
+phi = shapes;

@@ -44,7 +44,7 @@ lambda_k = lambda_k(end:-1:1);
 Psi_k = Psi_k(:,end:-1:1); 
 
 %principal components space de  k elements
-k = 1;
+k = 5;
 Psi = Psi_k(:,1:k);  
 
 size(data);	%40 x 112
@@ -53,17 +53,22 @@ size(Psi);	%112 x 5
 %data projected onto eigenspace
 b_k = data*Psi;		
 size(b_k); 	%40 x 5	
-size(Psi_k)	%112 x 112
+size(Psi_k);	%112 x 112
 
 
 %Approximation
 S = U + b_k*Psi';
-size(S);
-b_k
+%size(S);
+%b_k;
 
-S1 = reshape(S(40,:), [56 2] )
-
+%Obtain the sample
+S1 = reshape(S(40,:), [56 2] );
+%show sample using the approximation
 showShapes(S1', 20, []);
+title('Approximation');
+
+showShapes(Phi_k(:,:,40), 21,[]);
+title('Original');
 
 % b1 = ones([40  5]) .*(-3)*sqrt(lambda_k(1))
 
