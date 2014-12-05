@@ -1,4 +1,4 @@
-%	This file is used to run all the codes
+%	This file is used to run them all
 %
 %
 %	By 				Edgar Garcia Cano
@@ -36,4 +36,11 @@ Phi_k = T_k;
 %dataset
 [V, Phi_k] = procrustesAnalysis(Phi_k, 0.01);
 showShapes(V, 2, []);
-showShapes(Phi_k, 3, []);
+%showShapes(Phi_k, 3, []);
+
+% calculate the principal components analysis of the shapes
+[Psi_k, lambda_k] = principalComponentAnalysis(Phi_k, V);
+
+
+
+
