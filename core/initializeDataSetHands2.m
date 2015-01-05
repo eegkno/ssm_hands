@@ -13,7 +13,7 @@ function [shapes, phi] = initializeDataSetHands2()
 
 	shapes = load('shapes.txt')';
 
-	size(shapes)
+	size(shapes);
 	[rows, cols] = size(shapes);
 
 	phi = shapes;

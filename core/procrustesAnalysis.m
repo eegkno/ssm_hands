@@ -17,6 +17,7 @@ function [meanShape, shapes] = procrustesAnalysis(shapes, convergence)
 i = 0;
 meanShapes(:, :, 1) = shapes(:, :, 1);
 
+
 cost = [ convergence+1 ];
 while (i == 0 | cost(i) > convergence) 
    i = i + 1;
@@ -24,6 +25,7 @@ while (i == 0 | cost(i) > convergence)
    % apply procrustes analysis
    for j = 1:size(shapes, 3)
       
+
       [d,Z] = procrustes( shapes(:, :, j), meanShapes(:, :, i));
 
       %assign transformations
@@ -32,11 +34,13 @@ while (i == 0 | cost(i) > convergence)
    end;
    
    % find the new mean shape
+%   size(shapes)
    meanShapes(:, :, i+1) = mean(shapes, 3);
-   
+
+
    % calculate the cost between the current mean  and the i-1 shapes
    if (i ~= 1)
-      cost(i) = sum(sum((meanShapes(:, :, i-1) - meanShapes(:, :, i)).^2));
+      cost(i) = sum(sum((meanShapes(:, :, i+1) - meanShapes(:, :, i)).^2));
    end;
    
 end;

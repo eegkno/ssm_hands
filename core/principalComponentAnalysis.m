@@ -64,10 +64,10 @@ S = U + b_k*Psi';
 %Obtain the sample
 S1 = reshape(S(40,:), [56 2] );
 %show sample using the approximation
-showShapes(S1', 20, []);
+showShapes(S1', 10, []);
 title('Approximation');
 
-showShapes(Phi_k(:,:,40), 21,[]);
+showShapes(Phi_k(:,:,40), 11,[]);
 title('Original');
 
 % b1 = ones([40  5]) .*(-3)*sqrt(lambda_k(1))

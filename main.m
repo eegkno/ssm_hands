@@ -9,6 +9,10 @@
 %% Initialization
 clear all ; close all; clc
 
+%Adding current project path directories
+addpath('core');
+addpath('dataset');
+addpath('utilities');
 
 % Names of the variables
 
@@ -24,39 +28,48 @@ clear all ; close all; clc
 %=========  PART 1: LOADING DATA ==========
  fprintf('\n Loading datset....');
 %%Generate dataset
-[T_k, Phi_k] = initializeDataSetHands();
-showShapes(T_k, 1, []);
-title('Initial dataset');
+%$ [T_k, Phi_k] = initializeDataSetHands();
+%$ showShapes(T_k, 1, []);
+%$ title('Initial dataset');
 
 %== use with initializeDataSetHands2() ==
-%X = reshape(T_k(1,:), [56 2]); 	%56 rows, 2 columns 
-%showShapes(X', 1, []);
+[T_k2, Phi_k2] = initializeDataSetHands2();
+showShapes2(T_k2, 2, []);
+title('Initial dataset2');
+% X = reshape(T_k(1,:), [56 2]); 	%56 rows, 2 columns 
+% size(X')
+% showShapes2(X', 2, []);
 %===============================
 
- 
  fprintf(' done! \n');
+
 
 %========= PART 2: STATISTICAL SHAPE MODEL ==========
  fprintf('\n Procrustes analisys....');
 %Apply the procrustes analysis to the transformation to register the mean shape to the 
 %dataset
-[V, Phi_k] = procrustesAnalysis(Phi_k, 0.01);
-showShapes(V, 2, []);
-title('Mean shape');
-%showShapes(Phi_k, 3, []);
+%$ [V, Phi_k] = procrustesAnalysis(Phi_k, 0.01);
+%$ showShapes(V, 11, []);
+%$ title('Mean shape');
 
 %== use with initializeDataSetHands2() ==
-% [V, Phi_k] = procrustesAnalysis2(Phi_k, 0.1);
-% Y = reshape(V, [56 2]); 
-% showShapes(Y', 2, []);
+[V2, Phi_k2] = procrustesAnalysis2(Phi_k2, 0.1);
+showShapes2(V2, 21, []);
+title('Mean shape2');
+
 %===============================
  fprintf(' done! \n');
+
 
  %=========  PART 3: VARIATIONS ==========
   fprintf('\n Principal component analisys....');
 % calculate the principal components analysis of the shapes
-[Psi_k, lambda_k] = principalComponentAnalysis(Phi_k, V);
+%$ [Psi_k, lambda_k] = principalComponentAnalysis(Phi_k, V);
+[Psi_k2, lambda_k2] = principalComponentAnalysis2(Phi_k2, V2);
  fprintf(' done! \n');
 
 
-
+%Removing current project path 
+rmpath('core');
+rmpath('dataset');
+rmpath('utilities');
