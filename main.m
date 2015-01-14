@@ -66,6 +66,9 @@ title('Mean shape2');
 % calculate the principal components analysis of the shapes
 %$ [Psi_k, lambda_k] = principalComponentAnalysis(Phi_k, V);
 [Psi_k2, lambda_k2] = principalComponentAnalysis2(Phi_k2, V2);
+
+plotPrincipalModes( V2, Psi_k2, lambda_k2, 3)
+
  fprintf(' done! \n');
 
 
