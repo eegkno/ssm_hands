@@ -26,7 +26,7 @@ addpath('utilities');
 % lambda_k	eigenvalues vector of the covariance shape matrix
 
 %=========  PART 1: LOADING DATA ==========
- fprintf('\n Loading datset....');
+ fprintf('\nLoading datset....');
 %%Generate dataset
 %$ [T_k, Phi_k] = initializeDataSetHands();
 %$ showShapes(T_k, 1, []);
@@ -34,7 +34,7 @@ addpath('utilities');
 
 %== use with initializeDataSetHands2() ==
 [T_k2, Phi_k2] = initializeDataSetHands2();
-showShapes2(T_k2, 2, []);
+showShapes2(T_k2, 2);
 title('Initial dataset2');
 % X = reshape(T_k(1,:), [56 2]); 	%56 rows, 2 columns 
 % size(X')
@@ -45,7 +45,7 @@ title('Initial dataset2');
 
 
 %========= PART 2: STATISTICAL SHAPE MODEL ==========
- fprintf('\n Procrustes analisys....');
+ fprintf('\nProcrustes analisys....');
 %Apply the procrustes analysis to the transformation to register the mean shape to the 
 %dataset
 %$ [V, Phi_k] = procrustesAnalysis(Phi_k, 0.01);
@@ -54,7 +54,7 @@ title('Initial dataset2');
 
 %== use with initializeDataSetHands2() ==
 [V2, Phi_k2] = procrustesAnalysis2(Phi_k2, 0.1);
-showShapes2(V2, 21, []);
+showShapes2(V2, 4 );
 title('Mean shape2');
 
 %===============================
@@ -62,16 +62,20 @@ title('Mean shape2');
 
 
  %=========  PART 3: VARIATIONS ==========
-  fprintf('\n Principal component analisys....');
+  fprintf('\nPrincipal component analisys....');
 % calculate the principal components analysis of the shapes
 %$ [Psi_k, lambda_k] = principalComponentAnalysis(Phi_k, V);
-[Psi_k2, lambda_k2] = principalComponentAnalysis2(Phi_k2, V2);
+[Psi_k2, lambda_k2] = principalComponentAnalysis2(Phi_k2, V2, 6, 8);
 
-plotPrincipalModes( V2, Psi_k2, lambda_k2, 3)
+%Plot the the most significant eigevalues
+plotEigenvalues(lambda_k2(1:20), 10);
+
+%Plot the distribution of the most significant modes
+plotPrincipalModes( V2, Psi_k2, lambda_k2, 3, 12);
 
  fprintf(' done! \n');
 
-
+ fprintf('\n');
 %Removing current project path 
 rmpath('core');
 rmpath('dataset');

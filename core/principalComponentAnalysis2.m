@@ -7,6 +7,8 @@
 % output
 %	- Psi_k			   The eigenvectors vector of the covariance shape matrix
 %	- lambda_k		 The eigenvalues vector of the covariance shape matrix
+%	- fig1 			Number of the figure to be plotted
+%	- fig2 			Number of the figure to be plotted
 %
 %	By 				     Edgar Garcia Cano
 %	Created 		   Oct 8, 2014
@@ -15,7 +17,7 @@
 %                 http://stackoverflow.com/questions/17324156/using-pca-algorithm-for-adjusting-data
 
 
-function [Psi_k, lambda_k] = principalComponentAnalysis2(Phi_k, V)
+function [Psi_k, lambda_k] = principalComponentAnalysis2(Phi_k, V, fig1, fig2)
 
 X = Phi_k;	   %40 x 112
 T = V;       
@@ -53,10 +55,12 @@ S = U + b_k*Psi';
 size(S);
 %b_k;
 
-%Obtain the sample
-%show sample using the approximation
-showShapes2(S(40,:), 20, []);
+%show the sample
+showShapes2(Phi_k(40,:), fig1);
+title('Original');
+
+%show the approximation
+showShapes2(S(40,:), fig2 );
 title('Approximation');
 
-showShapes2(Phi_k(40,:), 21,[]);
-title('Original');
+

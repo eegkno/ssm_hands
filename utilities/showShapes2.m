@@ -1,20 +1,27 @@
-% Shows the passed set of shapes in the passed figuref
+% Shows the passed set of shapes in the  figure
+%
+% input
+%	- T_k 			Figure or set of figures
+%	- fig 			Number of the figure to be plotted
+%
+% output
+%
+%	By 				Edgar Garcia Cano
+%	Created 		Jan 12, 2015
 
-function showShapes2(T_k, fig, axisVec)
+function showShapes2(T_k, fig )
 
-[nshapes, npoints ] = size(T_k);
+	[nshapes, npoints ] = size(T_k);
 
-colors = 'bgrcmyk';
-figure(fig); colormap(gray); set(gcf,'DoubleBuffer','On'); clf; axis(axisVec);
-for i=1:nshapes
-   hold on;
-   %get x,y points for one i
-   X = reshape(T_k(i,:), [56 2]); 
-   xpts = X(:,1);
-   ypts = X(:,2);
-   hold on;
-   plot(xpts,ypts,sprintf('%c-*',colors(mod(i,length(colors))+1)));
-   hold off;
-end
+	colors = 'bgrcmyk';
+	figure(fig); colormap(gray); set(gcf,'DoubleBuffer','On'); clf; 
+	for i=1:nshapes
+	   hold on;
+	   X = reshape(T_k(i,:), [56 2]); 
+	   hold on;
+	   plot(X(:,1), X(:,2), sprintf('%c-*',colors(mod(i,length(colors))+1)));
+	   hold off;
+	end
 
 return;
+ 
