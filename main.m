@@ -75,6 +75,11 @@ plotPrincipalModes( V2, Psi_k2, lambda_k2, 3, 12);
 
  fprintf(' done! \n');
 
+%Chechink compactness
+modes = 5;
+fprintf('\nCompactness = %d  using %d modes\n', compactness(lambda_k2, modes ), modes);
+
+
  fprintf('\n');
 %Removing current project path 
 rmpath('core');
