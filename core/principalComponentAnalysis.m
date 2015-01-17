@@ -17,7 +17,7 @@
 %                 http://stackoverflow.com/questions/17324156/using-pca-algorithm-for-adjusting-data
 
 
-function [Psi_k, lambda_k] = principalComponentAnalysis2(Phi_k, V, fig1, fig2)
+function [Psi_k, lambda_k] = principalComponentAnalysis(Phi_k, V, fig1, fig2)
 
 X = Phi_k;	   %40 x 112
 T = V;       
@@ -56,11 +56,11 @@ size(S);
 %b_k;
 
 %show the sample
-showShapes2(Phi_k(40,:), fig1);
+showShapes(Phi_k(40,:), fig1);
 title('Original');
 
 %show the approximation
-showShapes2(S(40,:), fig2 );
+showShapes(S(40,:), fig2 );
 title('Approximation');
 
 

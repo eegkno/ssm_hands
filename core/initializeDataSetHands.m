@@ -1,7 +1,7 @@
 %configuration of the data
 %Source:	http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=403
 
-function [shapes, phi] = initializeDataSetHands2()
+function [shapes, phi] = initializeDataSetHands()
 
 % Following the autor’s explaination: The file handshapes.txt contains
 % the subset of hands used for the note alls formatet as xxxyyy, each is 56 points i.e. 112 rows and

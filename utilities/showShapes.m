@@ -9,7 +9,7 @@
 %	By 				Edgar Garcia Cano
 %	Created 		Jan 12, 2015
 
-function showShapes2(T_k, fig )
+function showShapes(T_k, fig )
 
 	[nshapes, npoints ] = size(T_k);
 

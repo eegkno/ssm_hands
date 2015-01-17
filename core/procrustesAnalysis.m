@@ -10,7 +10,7 @@
 
 %% Initialization
 
-function [meanShape, shapes] = procrustesAnalysis2(shapes, convergence)
+function [meanShape, shapes] = procrustesAnalysis(shapes, convergence)
 
 
 % registering the mean shape to the dataset
