@@ -28,17 +28,12 @@ addpath('utilities');
 %=========  PART 1: LOADING DATA ==========
  fprintf('\nLoading datset....');
 %%Generate dataset
-%$ [T_k, Phi_k] = initializeDataSetHands();
-%$ showShapes(T_k, 1, []);
-%$ title('Initial dataset');
-
-%== use with initializeDataSetHands2() ==
 [T_k, Phi_k] = initializeDataSetHands();
 showShapes(T_k, 2);
 title('Initial dataset');
 % X = reshape(T_k(1,:), [56 2]); 	%56 rows, 2 columns 
 % size(X')
-% showShapes2(X', 2, []);
+% showShapes(X', 2, []);
 %===============================
 
  fprintf(' done! \n');
@@ -48,11 +43,6 @@ title('Initial dataset');
  fprintf('\nProcrustes analisys....');
 %Apply the procrustes analysis to the transformation to register the mean shape to the 
 %dataset
-%$ [V, Phi_k] = procrustesAnalysis(Phi_k, 0.01);
-%$ showShapes(V, 11, []);
-%$ title('Mean shape');
-
-%== use with initializeDataSetHands2() ==
 [V, Phi_k] = procrustesAnalysis(Phi_k, 0.1);
 showShapes(V, 4 );
 title('Mean shape');
@@ -64,7 +54,6 @@ title('Mean shape');
  %=========  PART 3: VARIATIONS ==========
   fprintf('\nPrincipal component analisys....');
 % calculate the principal components analysis of the shapes
-%$ [Psi_k, lambda_k] = principalComponentAnalysis(Phi_k, V);
 [Psi_k, lambda_k] = principalComponentAnalysis(Phi_k, V, 6, 8);
 
 %Plot the the most significant eigevalues
@@ -75,7 +64,7 @@ plotPrincipalModes( V, Psi_k, lambda_k, 3, 12);
 
  fprintf(' done! \n');
 
-%Chechink compactness
+%Checking compactness
 modes = 5;
 fprintf('\nCompactness = %d  using %d modes\n', compactness(lambda_k, modes ), modes);
 

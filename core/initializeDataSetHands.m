@@ -3,7 +3,7 @@
 
 function [shapes, phi] = initializeDataSetHands()
 
-% Following the autor’s explaination: The file handshapes.txt contains
+% Following the author’s explaination: The file shapes.txt contains
 % the subset of hands used for the note alls formatet as xxxyyy, each is 56 points i.e. 112 rows and
 % one column per shape, 40 shapes. The string thus includes 4480 floating point coordinates. The
 % first 2240 numbers are the x coordinates, the second half the corresponding y coordinates. The
