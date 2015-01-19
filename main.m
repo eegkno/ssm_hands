@@ -54,13 +54,21 @@ title('Mean shape');
  %=========  PART 3: VARIATIONS ==========
   fprintf('\nPrincipal component analisys....');
 % calculate the principal components analysis of the shapes
-[Psi_k, lambda_k] = principalComponentAnalysis(Phi_k, V, 6, 8);
+[Psi_k, lambda_k, lambda_k2] = principalComponentAnalysis(Phi_k, V, 6, 8);
 
 %Plot the the most significant eigevalues
 plotEigenvalues(lambda_k(1:20), 10);
 
+
+%Plot the the most significant eigevalues
+plotEigenvalues(lambda_k2(1:20), 11);
+
+
 %Plot the distribution of the most significant modes
 plotPrincipalModes( V, Psi_k, lambda_k, 3, 12);
+
+%Plot the distribution of the most significant modes
+plotPrincipalModes( V, Psi_k, lambda_k2, 3, 13);
 
  fprintf(' done! \n');
 
