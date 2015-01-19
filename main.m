@@ -34,10 +34,9 @@ title('Initial dataset');
 % X = reshape(T_k(1,:), [56 2]); 	%56 rows, 2 columns 
 % size(X')
 % showShapes(X', 2, []);
-%===============================
 
  fprintf(' done! \n');
-
+%===============================
 
 %========= PART 2: STATISTICAL SHAPE MODEL ==========
  fprintf('\nProcrustes analisys....');
@@ -47,8 +46,9 @@ title('Initial dataset');
 showShapes(V, 4 );
 title('Mean shape');
 
-%===============================
+
  fprintf(' done! \n');
+%===============================
 
 
  %=========  PART 3: VARIATIONS ==========
@@ -63,6 +63,8 @@ plotEigenvalues(lambda_k(1:20), 10);
 plotPrincipalModes( V, Psi_k, lambda_k, 3, 12);
 
  fprintf(' done! \n');
+
+%===============================
 
 %Checking compactness
 modes = 5;

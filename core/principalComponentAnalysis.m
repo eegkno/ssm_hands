@@ -1,14 +1,14 @@
 % Finds the PCA distributionmatrix and eigenvectors vector
 %
 % input
-%	- V_k			     The shapes to do PCA
+%	- Phi_k			     The shapes to do PCA
 %	- V			The mean shape of the passed shapes
+%	- fig1 			Number of the figure to be plotted
+%	- fig2 			Number of the figure to be plotted
 %
 % output
 %	- Psi_k			   The eigenvectors vector of the covariance shape matrix
 %	- lambda_k		 The eigenvalues vector of the covariance shape matrix
-%	- fig1 			Number of the figure to be plotted
-%	- fig2 			Number of the figure to be plotted
 %
 %	By 				     Edgar Garcia Cano
 %	Created 		   Oct 8, 2014
@@ -52,7 +52,7 @@ b_k = data*Psi;
 
 %Approximation
 S = U + b_k*Psi';
-size(S);
+%size(S);
 %b_k;
 
 %show the sample
