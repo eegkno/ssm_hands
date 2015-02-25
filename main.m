@@ -39,7 +39,7 @@ title('Initial dataset');
 %===============================
 
 %========= PART 2: STATISTICAL SHAPE MODEL ==========
- fprintf('\nProcrustes analisys....');
+ fprintf('\nProcrustes analysis....');
 %Apply the procrustes analysis to the transformation to register the mean shape to the 
 %dataset
 [V, Phi_k] = procrustesAnalysis(Phi_k, 0.1);
