@@ -1,22 +1,35 @@
 %  This file is used to run all the codes
 %
+% input
+%  - shapes                      The shapes to apply  procrustes
+%  - convergence           Criteirum to evaluate 
+%  - ms                               Optional parameter to use a initial mean shape
+%
+% output
+%  - meanShape           Final mean shape after the analysis
+%  - shapes                     Transformations
+%
 %
 %  By             Edgar Garcia Cano
 %  Created        October 24, 2014
-%  Modifications
+%
 %  References
 %                 http://www.mathworks.com/help/stats/procrustes.html?refresh=true
 %
 
 %% Initialization
 
-function [meanShape, shapes] = procrustesAnalysis(shapes, convergence)
+function [meanShape, shapes] = procrustesAnalysis(shapes, convergence, ms)
 
 
-% registering the mean shape to the dataset
+if nargin<2, error('procrustesAnalysis.m error! Not enough input parameters.'); end;
+if (nargin==3)
+      meanShapes(1, :) = ms;
+else   
+      meanShapes(1, :) = shapes(1, :);
+end  
+
 i = 0;
-meanShapes(1, :) = shapes(1, :);
-
 
 cost = [ convergence+1 ];
 while (i == 0 | cost(i) > convergence) 
