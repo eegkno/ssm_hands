@@ -40,7 +40,7 @@ title('Initial dataset');
 %===============================
 
 %% ================= Part 2: CPD registration ============================
- fprintf('\CPD registration....');
+ fprintf('\nCPD registration....');
 
 % Set the options
 opt.viz=0;          % show every iteration
